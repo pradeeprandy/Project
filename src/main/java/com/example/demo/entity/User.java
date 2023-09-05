@@ -5,66 +5,87 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "product")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int product_id;
 
-	@Column(nullable = false, unique = true, length = 45)
-	private String name;
+	@Column(name = "product_name")
+	private String productName;
 
-	@Column(length = 15, nullable = false)
-	private String password;
+	@Column(name = "product_code")
+	private String productCode;
 
-	@Column(length = 45, nullable = false, name = "first_Name")
-	private String firstName;
+	@Column(name = "product_category")
+	private String productCategory;
 
-	@Column(length = 15, nullable = false, name = "last_Name")
-	private String lastName;
+	@Column(name = "product_metatype")
+	private String productMetatype;
+	
+	@Column(name = "json_column", columnDefinition = "JSON")
+	private String jsonColumn;
+	
+	@Lob
+	private String product_image;
 
-	public int getId() {
-		return id;
+	public String getJsonColumn() {
+		return jsonColumn;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setJsonColumn(String jsonColumn) {
+		this.jsonColumn = jsonColumn;
 	}
 
-	public String getName() {
-		return name;
+	public int getProduct_id() {
+		return product_id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getProductCode() {
+		return productCode;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getProductCategory() {
+		return productCategory;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setProductCategory(String productCategory) {
+		this.productCategory = productCategory;
 	}
 
+	public String getProductMetatype() {
+		return productMetatype;
+	}
+
+	public void setProductMetatype(String productMetatype) {
+		this.productMetatype = productMetatype;
+	}
+	public String getProduct_image() {
+		return product_image;
+	}
+
+	public void setProduct_image(String product_image) {
+		this.product_image = product_image;
+	}
 }
